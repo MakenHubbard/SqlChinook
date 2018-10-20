@@ -103,3 +103,16 @@ from Invoiceline i
 join Track t
 	on i.TrackId = t.TrackId
 	group by t.name
+
+--line_item_track_artist.sql: Provide a query that includes the purchased track name AND artist name with each invoice line item.
+
+select 
+	[artist] = t.Composer,
+	[track name] = t.name,
+	[# of Line Items] = Count(*)	
+from track t
+join InvoiceLine i
+	on i.TrackId = t.TrackId
+	group by t.Composer, t.Name
+
+	
