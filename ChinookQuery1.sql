@@ -74,9 +74,14 @@ from Invoice
 
 select
 	[total sales] = sum(Total),
-	[year] = year(invoiceDate)
+	year(invoiceDate)
 from Invoice
 	where InvoiceDate like '%2009%' or InvoiceDate like '%2011%'
 	group by year(invoiceDate)
 	
-		
+--invoice_37_line_item_count.sql: Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for Invoice ID 37.
+
+select 
+ [# number of line items for invoice id 37] = Count(*)
+from InvoiceLine	
+where InvoiceId = 37	
