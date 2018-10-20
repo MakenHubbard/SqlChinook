@@ -115,4 +115,12 @@ join InvoiceLine i
 	on i.TrackId = t.TrackId
 	group by t.Composer, t.Name
 
+--country_invoices.sql: Provide a query that shows the # of invoices per country. HINT: GROUP BY
+
+select 
+	[Country] = invoice.BillingCountry,
+	[# of Invoices] = count(*)
+from invoice
+group by invoice.BillingCountry
+
 	
