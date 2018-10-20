@@ -64,3 +64,19 @@ join invoice i
 	on i.customerId = c.customerId
 
 --total_invoices_{year}.sql: How many Invoices were there in 2009 and 2011?
+
+select 
+[number of Invoices in 2009 and 2011] = count(*)
+from Invoice
+	where InvoiceDate like '%2009%' or InvoiceDate like '%2011%'
+	
+--total_sales_{year}.sql: What are the respective total sales for each of those years?
+
+select
+	[total sales] = sum(Total),
+	[year] = year(invoiceDate)
+from Invoice
+	where InvoiceDate like '%2009%' or InvoiceDate like '%2011%'
+	group by year(invoiceDate)
+	
+		
