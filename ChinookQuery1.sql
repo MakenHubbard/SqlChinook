@@ -62,3 +62,5 @@ join employee e
 	on e.EmployeeId = c.SupportRepId
 join invoice i 
 	on i.customerId = c.customerId
+
+--total_invoices_{year}.sql: How many Invoices were there in 2009 and 2011?
