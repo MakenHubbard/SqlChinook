@@ -124,3 +124,11 @@ from invoice
 group by invoice.BillingCountry
 
 --playlists_track_count.sql: Provide a query that shows the total number of tracks in each playlist. The Playlist name should be include on the resulant table.
+
+select 
+	[playlist] = p.Name,
+	[# of tracks] = count(*)
+from playlist p
+join PlaylistTrack pt
+	on p.PlaylistId = pt.PlaylistId
+group by p.name
