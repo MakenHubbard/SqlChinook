@@ -85,3 +85,11 @@ select
  [# number of line items for invoice id 37] = Count(*)
 from InvoiceLine	
 where InvoiceId = 37	
+
+--line_items_per_invoice.sql: Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for each Invoice. HINT: GROUP BY
+
+select 
+[invoice id] = InvoiceLine.InvoiceId,
+[# of line items] = count(*)
+from InvoiceLine
+Group by InvoiceId
