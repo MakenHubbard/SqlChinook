@@ -93,3 +93,13 @@ select
 [# of line items] = count(*)
 from InvoiceLine
 Group by InvoiceId
+
+--line_item_track.sql: Provide a query that includes the purchased track name with each invoice line item.
+
+select 
+	[Track Name] = t.Name,
+	[Line items] = count(*)
+from Invoiceline i
+join Track t
+	on i.TrackId = t.TrackId
+	group by t.name
